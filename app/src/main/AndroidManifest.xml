@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Bluetooth permissions -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <!-- Audio effects -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- Foreground service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+
+    <!-- Network for billing -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".BassRideApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BassRide">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Foreground service for EQ -->
+        <service
+            android:name="com.velcuri.bassride.audio.BassRideService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="false" />
+
+        <!-- Bluetooth broadcast receiver -->
+        <receiver
+            android:name="com.velcuri.bassride.bluetooth.BluetoothReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+                <action android:name="android.media.ACTION_AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Home-screen widget receiver (Pro feature) -->
+        <receiver
+            android:name="com.velcuri.bassride.widget.BassRideWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/bassride_widget_info" />
+        </receiver>
+
+        <!-- Receives Prev/Next preset taps from the widget -->
+        <receiver
+            android:name="com.velcuri.bassride.widget.WidgetPresetSwitchReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.velcuri.bassride.SWITCH_PRESET" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Receives widget update broadcasts from BassRideService -->
+        <receiver
+            android:name="com.velcuri.bassride.widget.WidgetUpdateReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.velcuri.bassride.WIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Stylised equalizer bars — BassRide foreground icon -->
+    <path
+        android:fillColor="#FF00D4FF"
+        android:pathData="M24,72 L24,50 Q24,48 26,48 L32,48 Q34,48 34,50 L34,72 Q34,74 32,74 L26,74 Q24,74 24,72 Z" />
+    <path
+        android:fillColor="#FF00D4FF"
+        android:pathData="M40,72 L40,36 Q40,34 42,34 L48,34 Q50,34 50,36 L50,72 Q50,74 48,74 L42,74 Q40,74 40,72 Z" />
+    <path
+        android:fillColor="#FF00D4FF"
+        android:pathData="M56,72 L56,28 Q56,26 58,26 L64,26 Q66,26 66,28 L66,72 Q66,74 64,74 L58,74 Q56,74 56,72 Z" />
+    <path
+        android:fillColor="#FF00D4FF"
+        android:pathData="M72,72 L72,42 Q72,40 74,40 L80,40 Q82,40 82,42 L82,72 Q82,74 80,74 L74,74 Q72,74 72,72 Z" />
+</vector>

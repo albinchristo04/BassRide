@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BassRide</string>
+    <string name="eq_screen_title">Equalizer</string>
+    <string name="presets_screen_title">Presets</string>
+    <string name="devices_screen_title">Devices</string>
+    <string name="settings_screen_title">Settings</string>
+    <string name="upgrade_screen_title">Go Pro</string>
+    <string name="notification_channel_eq">EQ Active</string>
+    <string name="notification_eq_active">BassRide EQ is active</string>
+    <string name="pro_unlock_product_id">bassride_pro_unlock</string>
+    <string name="widget_description">Quick-access EQ preset switcher for your car</string>
+</resources>
